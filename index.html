@@ -12,28 +12,39 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
-		
-	
 		<style>
+			#chatbot-container {
+				display: none;
+			}
+			
+			#chat-icon {
+				position: fixed;
+				bottom: 0px;
+				right: 120px;
+				z-index: 9999;
+				width: 100px;
+				height: auto;
+				cursor: pointer;
+			}
+
 			@media screen and (max-width: 768px) {
 				#chatbot-container {
-					width: 40%; /* Set the width as a percentage for smaller screens */
-					height: 130px; /* Adjust the height as needed for mobile */
-					max-height: 50vh; /* Adjust the max-height as needed */
-					border: 3px solid yellow; /* Optional: Adjust border style */
+					
+					width: 30%;
+                    right: 10px;
+                   
 				}
 			}
 			
 			#chatbot-container {
 				position: fixed;
 				bottom: 0;
-				right: 20px;
+				right: 10px;
 				z-index: 9999;
-				width:20%; /* Set the width as a percentage for larger screens */
-				height: 530px; /* Height set to auto for automatic sizing */
-				max-height: 70vh; /* Adjust the max-height as needed */
+				width: 300px;
+				height: 530px;
+				max-height: 75vh;
 			}
-			
 		</style>
 	</head>
 	
@@ -334,11 +345,28 @@
 
 					<!-- Chatbot iframe container -->
 					
+					<a id="chat-icon" href="#">
+						<img src="images/bot.jpg" alt="Chat">
+					</a>
 					<div id="chatbot-container">
-						<iframe src="https://bot-2gz9.onrender.com" 
-							style="width: 100%; height: 100%; border: 5px solid yellow;">
-						</iframe>
+						<iframe src="https://bot-2gz9.onrender.com" style="width: 100%; height: 100%; border: 5px solid yellow;"></iframe>
 					</div>
+					<!-- JavaScript to toggle the chatbot container -->
+					<script>
+						const chatIcon = document.getElementById('chat-icon');
+						const chatbotContainer = document.getElementById('chatbot-container');
+						chatbotContainer.style.display = 'none';
+						chatIcon.addEventListener('click', () => {
+							if (chatbotContainer.style.display === 'none') {
+								chatbotContainer.style.display = 'block';
+							} else {
+								chatbotContainer.style.display = 'none';
+							}
+						});
+					</script>
+					
+
+					
 					
 					
 
