@@ -20,7 +20,7 @@
 			#chat-icon {
 				position: fixed;
 				bottom: 0px;
-				right: 120px;
+				right: 0px;
 				z-index: 9999;
 				width: 100px;
 				height: auto;
@@ -39,7 +39,7 @@
 			#chatbot-container {
 				position: fixed;
 				bottom: 0;
-				right: 10px;
+				right: 0px;
 				z-index: 9999;
 				width: 300px;
 				height: 530px;
@@ -345,23 +345,37 @@
 
 					<!-- Chatbot iframe container -->
 					
-					<a id="chat-icon" href="#">
-						<img src="images/bot.jpg" alt="Chat">
-					</a>
-					<div id="chatbot-container">
-						<iframe src="https://bot-2gz9.onrender.com" style="width: 100%; height: 100%; border: 5px solid yellow;"></iframe>
+					<div id="chat-icon">
+						<img src="images/3.png" alt="Chat">
 					</div>
-					<!-- JavaScript to toggle the chatbot container -->
+					
+					<div id="chatbot-container">
+						<!-- Content of the chatbot goes here -->
+						<iframe src="https://bot-2gz9.onrender.com" style="width: 100%; height: 100%; border: 5px solid rgb(0, 162, 255);"></iframe
+						
+						<!-- Minimize button with a down arrow icon -->
+						<button id="minimize-button" style="position: absolute; bottom:2; right:0; background: #00e1ff; color: #fff; font-size: 12px; padding: 2px 5px; cursor: pointer;">
+							▼ Minimize
+						</button>
+					</div>
+					
 					<script>
 						const chatIcon = document.getElementById('chat-icon');
 						const chatbotContainer = document.getElementById('chatbot-container');
-						chatbotContainer.style.display = 'none';
+						const minimizeButton = document.getElementById('minimize-button');
+					
+						chatbotContainer.style.display = 'none';  // Initially hide the chat container
+					
 						chatIcon.addEventListener('click', () => {
 							if (chatbotContainer.style.display === 'none') {
 								chatbotContainer.style.display = 'block';
 							} else {
 								chatbotContainer.style.display = 'none';
 							}
+						});
+					
+						minimizeButton.addEventListener('click', () => {
+							chatbotContainer.style.display = 'none';
 						});
 					</script>
 					
