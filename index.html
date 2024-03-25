@@ -20,7 +20,7 @@
 			#chat-icon {
 				position: fixed;
 				bottom: 0px;
-				right: 0px;
+				left: 0px;
 				z-index: 9999;
 				width: 100px;
 				height: auto;
@@ -31,7 +31,7 @@
 				#chatbot-container {
 					
 					width: 30%;
-                    right: 10px;
+                    left: 10px;
                    
 				}
 			}
@@ -39,12 +39,23 @@
 			#chatbot-container {
 				position: fixed;
 				bottom: 0;
-				right: 0px;
+				left: 0px;
 				z-index: 9999;
 				width: 300px;
 				height: 530px;
 				max-height: 75vh;
 			}
+					  
+		</style>
+		<style>
+			#voiceflow-chat-widget {
+				position: fixed !important;
+				bottom: 0 !important;
+				left: 0 !important;
+				right: auto !important;
+			}
+
+			
 		</style>
 	</head>
 	
@@ -346,7 +357,7 @@
 					<!-- Chatbot iframe container -->
 					
 					<div id="chat-icon">
-						<img src="images/bot.png" alt="Chat">
+						<img src="images/bot.jpg" alt="Chat">
 					</div>
 					
 					<div id="chatbot-container">
@@ -354,7 +365,7 @@
 						<iframe src="https://bot-2gz9.onrender.com" style="width: 100%; height: 100%; border: 5px solid rgb(0, 162, 255);"></iframe
 						
 						<!-- Minimize button with a down arrow icon -->
-						<button id="minimize-button" style="position: absolute; bottom:2; right:0; background: #00e1ff; color: #fff; font-size: 12px; padding: 2px 5px; cursor: pointer;">
+						<button id="minimize-button" style="position: absolute; bottom:2; right:0; background: #00e1ff; color: #fff; font-size: 12px; padding: 2px 2px; cursor: pointer;">
 							▼ Minimize
 						</button>
 					</div>
@@ -378,6 +389,21 @@
 							chatbotContainer.style.display = 'none';
 						});
 					</script>
+					<div id="voiceflow-chat-widget">
+						<script type="text/javascript">
+							(function(d, t) {
+								var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+								v.onload = function() {
+								window.voiceflow.chat.load({
+									verify: { projectID: '65fd88c0d8db7935e9aa8b22' },
+									url: 'https://general-runtime.voiceflow.com',
+									versionID: 'production'
+								});
+								}
+								v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+							})(document, 'script');
+						</script>
+					</div>  
 					
 
 					
